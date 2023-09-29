@@ -28,12 +28,26 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+        modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[]
         {
+            new()
+            {
             Id = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
             Name = "Admin",
             NormalizedName = "admin"
-        });
+            },
+            new()
+            {
+                Id = "f2498ab4-e4b6-4e61-92c0-9568e96a8145",
+                Name = "Courtney",
+                NormalizedName = "courtney"
+            },
+            new ()
+            // {
+            //     Id =
+            // }
+        }
+        );
 
         modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser[]
         {
@@ -106,7 +120,7 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
         },
         new()
         {
-            Id = 2,
+            Id = 3,
             IdentityUserId = "d9b5145a-739c-42d3-9e94-d2d439063d7e",
             FirstName = "Jeremy",
             LastName = "Gibeault",
@@ -114,7 +128,7 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
         },
         new()
         {
-            Id = 2,
+            Id = 4,
             IdentityUserId = "a7bc4dd9-8f10-4e24-8c0c-ef09a24ec9a5",
             FirstName = "Sean",
             LastName = "Gulledge",
@@ -122,7 +136,7 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
         },
         new()
         {
-            Id = 2,
+            Id = 5,
             IdentityUserId = "6a2f5d0b-3eac-4dab-ae9d-7f26d77e4a8c",
             FirstName = "Rick",
             LastName = "Gibeault",
@@ -170,18 +184,18 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
         modelBuilder.Entity<Pizza>().HasData(new Pizza[]
         {
             new Pizza {Id = 1, SizeId = 2, CheeseId = 1, SauceId = 1, OrderId = 1},
-            new Pizza {Id = 2, SizeId = 1, CheeseId = 2, SauceId = 5, OrderId = 2},
-            new Pizza {Id = 3, SizeId = 2, CheeseId = 5, SauceId = 3, OrderId = 2},
+            new Pizza {Id = 2, SizeId = 1, CheeseId = 2, SauceId = 2, OrderId = 2},
+            new Pizza {Id = 3, SizeId = 2, CheeseId = 3, SauceId = 3, OrderId = 2},
             new Pizza {Id = 4, SizeId = 3, CheeseId = 4, SauceId = 4, OrderId = 3},
-            new Pizza {Id = 5, SizeId = 3, CheeseId = 6, SauceId = 2, OrderId = 4},
+            new Pizza {Id = 5, SizeId = 3, CheeseId = 2, SauceId = 2, OrderId = 4},
             new Pizza {Id = 6, SizeId = 1, CheeseId = 2, SauceId = 4, OrderId = 4},
             new Pizza {Id = 7, SizeId = 1, CheeseId = 1, SauceId = 3, OrderId = 5},
             new Pizza {Id = 8, SizeId = 1, CheeseId = 3, SauceId = 1, OrderId = 6},
-            new Pizza {Id = 9, SizeId = 2, CheeseId = 4, SauceId = 5, OrderId = 6},
+            new Pizza {Id = 9, SizeId = 2, CheeseId = 4, SauceId = 4, OrderId = 6},
             new Pizza {Id = 10, SizeId = 3, CheeseId = 3, SauceId = 1, OrderId = 6},
-            new Pizza {Id = 11, SizeId = 1, CheeseId = 5, SauceId = 1, OrderId = 7},
+            new Pizza {Id = 11, SizeId = 1, CheeseId = 2, SauceId = 1, OrderId = 7},
             new Pizza {Id = 12, SizeId = 2, CheeseId = 1, SauceId = 2, OrderId = 8},
-            new Pizza {Id = 13, SizeId = 1, CheeseId = 6, SauceId = 3, OrderId = 8},
+            new Pizza {Id = 13, SizeId = 1, CheeseId = 1, SauceId = 3, OrderId = 8},
             new Pizza {Id = 14, SizeId = 2, CheeseId = 1, SauceId = 3, OrderId = 9},
             new Pizza {Id = 15, SizeId = 3, CheeseId = 2, SauceId = 1, OrderId = 9}
         });
@@ -190,7 +204,7 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
         {
             new PizzaTopping {Id = 1, PizzaId = 1, ToppingId = 1, Quantity = 8},
             new PizzaTopping {Id = 2, PizzaId = 1, ToppingId = 8, Quantity = 8},
-            new PizzaTopping {Id = 3, PizzaId = 1, ToppingId = 9, Quantity = 8},
+            new PizzaTopping {Id = 3, PizzaId = 1, ToppingId = 5, Quantity = 8},
             new PizzaTopping {Id = 4, PizzaId = 2, ToppingId = 1, Quantity = 10},
             new PizzaTopping {Id = 5, PizzaId = 3, ToppingId = 1, Quantity = 11},
             new PizzaTopping {Id = 6, PizzaId = 3, ToppingId = 2, Quantity = 7},
@@ -201,9 +215,9 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
             new PizzaTopping {Id = 11, PizzaId = 6, ToppingId = 1, Quantity = 7},
             new PizzaTopping {Id = 12, PizzaId = 6, ToppingId = 7, Quantity = 4},
             new PizzaTopping {Id = 13, PizzaId = 7, ToppingId = 1, Quantity = 10},
-            new PizzaTopping {Id = 14, PizzaId = 8, ToppingId = 11, Quantity = 11},
+            new PizzaTopping {Id = 14, PizzaId = 8, ToppingId = 2, Quantity = 11},
             new PizzaTopping {Id = 15, PizzaId = 9, ToppingId = 8, Quantity = 12},
-            new PizzaTopping {Id = 16, PizzaId = 9, ToppingId = 10, Quantity = 10},
+            new PizzaTopping {Id = 16, PizzaId = 9, ToppingId = 1, Quantity = 10},
             new PizzaTopping {Id = 17, PizzaId = 10, ToppingId = 4, Quantity = 5},
             new PizzaTopping {Id = 18, PizzaId = 11, ToppingId = 1, Quantity = 6},
             new PizzaTopping {Id = 19, PizzaId = 11, ToppingId = 3, Quantity = 8},
@@ -231,15 +245,15 @@ public class ShepherdsPiesDbContext : IdentityDbContext<IdentityUser>
 
         modelBuilder.Entity<Order>().HasData(new Order[]
         {
-            new Order {Id = 1, EmployeeId = 2, TableNumber = 3, TipAmount = 6.80M, DateTimePlaced = new DateTime(2023, 09, 16, 17, 30, 50)},
-            new Order {Id = 2, EmployeeId = 2, DriverId = 3, TipAmount = 11M, DateTimePlaced = new DateTime(2023, 09, 16, 18, 25, 22)},
-            new Order {Id = 3, EmployeeId = 3, TableNumber = 4, DateTimePlaced = new DateTime(2023, 09, 17, 12, 04, 35)},
-            new Order {Id = 4, EmployeeId = 4, DriverId = 3, TipAmount = 8.75M, DateTimePlaced = new DateTime(2023, 09, 18, 12, 04, 11)},
-            new Order {Id = 5, EmployeeId = 3, DriverId = 3, TipAmount = 4.95M, DateTimePlaced = new DateTime(2023, 09, 18, 13, 48, 37)},
-            new Order {Id = 6, EmployeeId = 4, TableNumber = 1, TipAmount = 12M, DateTimePlaced = new DateTime(2023, 09, 18, 15, 22, 58)},
-            new Order {Id = 7, EmployeeId = 2, TableNumber = 2, DateTimePlaced = new DateTime(2023, 09, 20, 11, 07, 47)},
-            new Order {Id = 8, EmployeeId = 3, DriverId = 3, TipAmount = 8.55M, DateTimePlaced = new DateTime(2023, 09, 22, 12, 34, 51)},
-            new Order {Id = 9, EmployeeId = 2, DriverId = 3, TipAmount = 6.39M, DateTimePlaced = new DateTime(2023, 09, 22, 14, 41, 08)}
+            new Order {Id = 1, EmployeeId = 2, DriverId = null, TableNumber = 3, TipAmount = 6.80M, DateTimePlaced = new DateTime(2023, 09, 26, 17, 0, 0)},
+            new Order {Id = 2, EmployeeId = 2, DriverId = 3, TableNumber = null, TipAmount = 11M, DateTimePlaced = new DateTime(2023, 09, 16, 14, 25, 22)},
+            new Order {Id = 3, EmployeeId = 3, DriverId = null, TableNumber = 4, DateTimePlaced = new DateTime(2023, 09, 27, 12, 04, 35)},
+            new Order {Id = 4, EmployeeId = 4, DriverId = 3, TableNumber = null, TipAmount = 8.75M, DateTimePlaced = new DateTime(2023, 09, 28, 12, 04, 11)},
+            new Order {Id = 5, EmployeeId = 3, DriverId = 3, TableNumber = null, TipAmount = 4.95M, DateTimePlaced = new DateTime(2023, 09, 28, 13, 48, 37)},
+            new Order {Id = 6, EmployeeId = 4, DriverId = null, TableNumber = 1, TipAmount = 12M, DateTimePlaced = new DateTime(2023, 09, 28, 15, 22, 58)},
+            new Order {Id = 7, EmployeeId = 2, DriverId = null, TableNumber = 2, DateTimePlaced = new DateTime(2023, 09, 29, 11, 07, 47)},
+            new Order {Id = 8, EmployeeId = 3, DriverId = 3, TableNumber = null, TipAmount = 8.55M, DateTimePlaced = new DateTime(2023, 09, 29, 12, 34, 51)},
+            new Order {Id = 9, EmployeeId = 2, DriverId = 3, TableNumber = null, TipAmount = 6.39M, DateTimePlaced = new DateTime(2023, 09, 29, 14, 41, 08)}
         }); 
     }
 }

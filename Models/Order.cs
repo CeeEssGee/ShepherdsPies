@@ -12,7 +12,7 @@ public class Order
     public int? TableNumber { get; set; }
     public int? DriverId { get; set; }
     [ForeignKey("DriverId")]
-    public UserProfile Driver { get; set; }
+    public UserProfile? Driver { get; set; }
     private static decimal _deliveryCost = 5.00M;
     public decimal? TipAmount { get; set; }
     [Required]
