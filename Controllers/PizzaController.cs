@@ -49,4 +49,20 @@ public class PizzaController : ControllerBase
 
         return Ok(pizza);
     }
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public IActionResult DeletePizza(int id)
+    {
+        Pizza pizzaToDelete = _dbContext.Pizzas.SingleOrDefault(o => o.Id == id);
+
+        if (pizzaToDelete == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Pizzas.Remove(pizzaToDelete);
+        _dbContext.SaveChanges();
+        return NoContent();
+    }
 }

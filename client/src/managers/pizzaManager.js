@@ -9,3 +9,9 @@ export const getPizzaById = (id) => {
     return fetch(`${_apiURL}/${id}`)
         .then((res) => res.json());
 };
+
+export const deletePizza = (id) => {
+    return fetch(`${_apiURL}/${id}`, {
+        method: "DELETE"
+    });
+};
