@@ -49,12 +49,12 @@ export const OrderList = () => {
                                     onClick={() => {
                                         navigate(`${o.id}`);
                                     }}
-                                >Details</Button></td>
+                                >Order Details</Button></td>
                                 <td><Button color="danger"
                                     onClick={() => {
                                         handleDelete(o.id);
                                     }}
-                                >Delete</Button></td>
+                                >Cancel Order</Button></td>
                             </tr>
                         ))}
                     </tbody>
