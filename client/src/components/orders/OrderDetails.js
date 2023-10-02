@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import { getOrderById } from "../../managers/orderManager";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
+import { deletePizza } from "../../managers/pizzaManager";
 
 
 export const OrderDetails = () => {
@@ -13,6 +14,10 @@ export const OrderDetails = () => {
     useEffect(() => {
         getOrderById(orderId).then(setOrder);
     }, []);
+
+    // const handleDelete = (pizzaId) => {
+    //     deletePizza(pizzaId)
+    // }
 
     if (order == null) {
         return "";
@@ -42,8 +47,8 @@ export const OrderDetails = () => {
                     <td>{order?.tableNumber ? order.tableNumber : "N/A"}</td>
 
                     <td>{order?.pizzas.length}</td>
-                    <td>{order?.tipAmount}</td>
-                    <td>{order?.totalCost}</td>
+                    <td>{order?.tipAmount.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
+                    <td>{order?.totalCost.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
                 </tbody>
             </Table>
             <h4>Pizza Details</h4>
@@ -74,6 +79,10 @@ export const OrderDetails = () => {
                                     <td>{p?.pizzaToppings?.map((pt) =>
                                         <div key={`pizzaTopping--${pt.id}`}>{pt?.topping?.name}</div>
                                     )}</td>
+                                    <td><Button color="danger"
+                                    // value={p.id}
+                                    // onClick={handleDelete(p.id)}
+                                    >Delete Pizza</Button></td>
                                 </tr>
                             )
                         })
