@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import { getOrderById } from "../../managers/orderManager";
-import { Button, Table } from "reactstrap";
-import { getPizzaById } from "../../managers/pizzaManager";
+import { Table } from "reactstrap";
 
 
-export const OrderDetails = ({ loggedInUser }) => {
+export const OrderDetails = () => {
     const [order, setOrder] = useState(null);
 
     const { orderId } = useParams();
