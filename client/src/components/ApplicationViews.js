@@ -4,6 +4,8 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { OrderList } from "./orders/OrderList";
 import { OrderDetails } from "./orders/OrderDetails";
+import { OrderCreate } from "./orders/OrderCreate";
+import { OrderEdit } from "./orders/OrderEdit";
 
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -39,7 +41,27 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             }
           />
 
+          <Route
+            path="edit/:orderId"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <OrderEdit />
+              </AuthorizedRoute>
+            }
+          />
+
+          <Route
+            path="create"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <OrderCreate />
+              </AuthorizedRoute>
+            }
+          />
+
         </Route>
+
+
 
 
 

@@ -35,6 +35,12 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                                     </NavLink>
                                 </NavItem>
 
+                                <NavItem onClick={() => setOpen(false)}>
+                                    <NavLink tag={RRNavLink} to="/order/create">
+                                        New Order
+                                    </NavLink>
+                                </NavItem>
+
                             </Nav>
                         </Collapse>
                         <Button

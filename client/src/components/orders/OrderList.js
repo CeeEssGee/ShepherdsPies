@@ -23,7 +23,11 @@ export const OrderList = () => {
     return (
         <div className="container">
             <div className="sub-menu bg-light">
-                <h4>Orders</h4>
+                <h2>Orders</h2>
+                <Button color="success"
+                    onClick={() => {
+                        navigate(`/order/create`);
+                    }}>New Order</Button>
                 <Table>
                     <thead>
                         <tr>

@@ -15,9 +15,9 @@ export const OrderDetails = () => {
         getOrderById(orderId).then(setOrder);
     }, []);
 
-    // const handleDelete = (pizzaId) => {
-    //     deletePizza(pizzaId)
-    // }
+    const handleDelete = (pizzaId) => {
+        deletePizza(pizzaId)
+    }
 
     if (order == null) {
         return "";
@@ -26,6 +26,11 @@ export const OrderDetails = () => {
     return (
         <div className="container">
             <h2>Order {orderId}</h2>
+            <Button color="info"
+                onClick={() => {
+                    navigate(`/order/edit/${orderId}`)
+                }}
+            >Edit Order</Button>
             <Table>
                 <tbody>
                     <tr>
@@ -80,8 +85,8 @@ export const OrderDetails = () => {
                                         <div key={`pizzaTopping--${pt.id}`}>{pt?.topping?.name}</div>
                                     )}</td>
                                     <td><Button color="danger"
-                                    // value={p.id}
-                                    // onClick={handleDelete(p.id)}
+                                        value={p.id}
+                                        onClick={() => { handleDelete(p.id) }}
                                     >Delete Pizza</Button></td>
                                 </tr>
                             )
