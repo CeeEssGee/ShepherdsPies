@@ -52,8 +52,10 @@ export const OrderDetails = () => {
                     <td>{order?.tableNumber ? order.tableNumber : "N/A"}</td>
 
                     <td>{order?.pizzas.length}</td>
-                    <td>{order?.tipAmount.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
-                    <td>{order?.totalCost.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
+                    <td>{order?.tipAmount}</td>
+                    {/* .toLocaleString("en-US", { style: "currency", currency: "USD" }) */}
+                    <td>{order?.totalCost}</td>
+                    {/* .toLocaleString("en-US", { style: "currency", currency: "USD" }) */}
                 </tbody>
             </Table>
             <h4>Pizza Details</h4>
@@ -75,7 +77,8 @@ export const OrderDetails = () => {
                             return (
                                 <tr key={`pizza--${p.id}`}>
                                     <td>{p.id}</td>
-                                    <td>{p.cost.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
+                                    <td>{p.cost}</td>
+                                    {/* .toLocaleString("en-US", { style: "currency", currency: "USD" }) */}
                                     <td>{p.size.name}</td>
                                     <td>{p.sauce.name}</td>
                                     <td>{p.cheese.name}</td>
