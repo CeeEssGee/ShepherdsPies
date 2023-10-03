@@ -4,8 +4,8 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { OrderList } from "./orders/OrderList";
 import { OrderDetails } from "./orders/OrderDetails";
-import { OrderCreate } from "./orders/OrderCreate";
 import { OrderEdit } from "./orders/OrderEdit";
+import { OrderCreate } from "./orders/OrderCreate";
 
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
