@@ -42,7 +42,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           />
 
           <Route
-            path="edit/:orderId"
+            path="edit/:id"
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
                 <OrderEdit />
