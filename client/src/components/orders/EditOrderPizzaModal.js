@@ -22,6 +22,22 @@ export const EditOrderPizzaModal = ({ pizzaObject, toggle, setSelectedPizza }) =
         sauce: null,
     });
 
+    useEffect(() => {
+        getAllSizes().then(setSizes);
+        getAllCheeses().then(setCheeses);
+        getAllSauces().then(setSauces);
+        getAllToppings().then(setToppings);
+
+        setPizzaBuilder(pizzaObject);
+        setToppingsBuilder(pizzaObject.pizzaToppings);
+        setPizzaToppings(pizzaObject.pizzaToppings);
+        setToppingIds(pizzaObject.pizzaToppings.map((pt) => {
+            return pt.toppingId;
+        }))
+    }, []);
+
+
+
     const handleToppingCheck = (e, id) => {
         const { checked } = e.target;
         let clone = structuredClone(toppingIds);
@@ -89,20 +105,6 @@ export const EditOrderPizzaModal = ({ pizzaObject, toggle, setSelectedPizza }) =
         toggle();
     }
 
-
-    useEffect(() => {
-        getAllSizes().then(setSizes);
-        getAllCheeses().then(setCheeses);
-        getAllSauces().then(setSauces);
-        getAllToppings().then(setToppings);
-
-        setPizzaBuilder(pizzaObject);
-        setToppingsBuilder(pizzaObject.pizzaToppings);
-        setPizzaToppings(pizzaObject.pizzaToppings);
-        setToppingIds(pizzaObject.pizzaToppings.map((pt) => {
-            return pt.toppingId;
-        }))
-    }, []);
 
 
     if (!pizzaObject) {
