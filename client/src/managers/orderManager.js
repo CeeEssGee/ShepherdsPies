@@ -5,6 +5,11 @@ export const getOrders = () => {
         .then((res) => res.json());
 };
 
+export const getTodaysOrders = () => {
+    return fetch(`${_apiURL}/today`)
+        .then((res) => res.json());
+};
+
 export const fetchNewestFirst = () => {
     return fetch(`${_apiURL}/newest`)
         .then((res) => res.json());

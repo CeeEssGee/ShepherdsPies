@@ -6,6 +6,7 @@ import { OrderList } from "./orders/OrderList";
 import { OrderDetails } from "./orders/OrderDetails";
 import { OrderEdit } from "./orders/OrderEdit";
 import { OrderCreate } from "./orders/OrderCreate";
+import { OrderListToday } from "./orders/OrderListToday";
 
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -26,8 +27,17 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           <Route
             index
             element={
-              <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+              <AuthorizedRoute loggedInUser={loggedInUser}>
                 <OrderList />
+              </AuthorizedRoute>
+            }
+          />
+
+          <Route
+            path="today"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <OrderListToday />
               </AuthorizedRoute>
             }
           />

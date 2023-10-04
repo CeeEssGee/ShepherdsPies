@@ -51,7 +51,7 @@ export const OrderDetails = () => {
 
                     <td>{order?.tableNumber ? order.tableNumber : "N/A"}</td>
 
-                    <td>{order?.pizzas.length}</td>
+                    <td>{order?.pizzas?.length}</td>
                     <td>{order?.tipAmount}</td>
                     {/* .toLocaleString("en-US", { style: "currency", currency: "USD" }) */}
                     <td>{order?.totalCost}</td>

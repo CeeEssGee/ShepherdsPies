@@ -38,6 +38,30 @@ public class OrderController : ControllerBase
         );
     }
 
+    [HttpGet("today")]
+    [Authorize]
+    public IActionResult GetToday()
+    {
+
+
+        return Ok(_dbContext.Orders
+            .Include(o => o.Employee)
+            .Include(o => o.Driver)
+            .Include(o => o.Pizzas)
+            .ThenInclude(p => p.Size)
+            .Include(o => o.Pizzas)
+            .ThenInclude(p => p.Cheese)
+            .Include(o => o.Pizzas)
+            .ThenInclude(p => p.Sauce)
+            .Include(o => o.Pizzas)
+            .ThenInclude(p => p.PizzaToppings)
+            .ThenInclude(pt => pt.Topping)
+            .OrderByDescending(o => o.DateTimePlaced)
+            .Where(o => o.DateTimePlaced.Date == DateTime.Today)
+            .ToList()
+        );
+    }
+
     [HttpGet("{id}")]
     // [Authorize]
     public IActionResult GetOrderById(int id)
