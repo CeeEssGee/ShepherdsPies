@@ -30,8 +30,14 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                             <Nav navbar>
 
                                 <NavItem onClick={() => setOpen(false)}>
+                                    <NavLink tag={RRNavLink} to="/order/today">
+                                        Today's Orders
+                                    </NavLink>
+                                </NavItem>
+
+                                <NavItem onClick={() => setOpen(false)}>
                                     <NavLink tag={RRNavLink} to="/order">
-                                        Orders
+                                        All Orders
                                     </NavLink>
                                 </NavItem>
 
