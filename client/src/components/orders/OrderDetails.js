@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getOrderById } from "../../managers/orderManager";
 import { Button, Table } from "reactstrap";
 import { deletePizza } from "../../managers/pizzaManager";
+import { AddPizza } from "./AddPizza";
 
 
 export const OrderDetails = () => {
@@ -98,6 +99,8 @@ export const OrderDetails = () => {
                     }
                 </tbody>
             </Table>
+            {/* <Button color="success">Add Pizza</Button>
+            <AddPizza orderId={orderId} /> */}
         </div>
     )
 }
